@@ -233,6 +233,8 @@ This is a **collaborative project** — everyone in the group must:
 | `npm run test:ci` | Run tests + coverage report |
 | `npm run lint` | Check syntax and code quality |
 | `npm run lint:fix` | Auto-fix lint issues |
+| `npm run complexity` | Analyze cyclomatic complexity (detailed report) |
+| `npm run complexity:check` | Strict complexity check for CI (fails if >5) |
 
 ---
 
