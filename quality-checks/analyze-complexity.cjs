@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Script para analizar y mostrar la complejidad ciclomática de las funciones
+ * Script to analyze and display cyclomatic complexity of functions
  */
 
 const { ESLint } = require('eslint');
@@ -13,7 +13,7 @@ async function analyzeComplexity() {
     overrideConfig: [{
       files: ['**/*.js'],
       rules: {
-        'complexity': ['warn', { max: 1 }], // Establecer en 1 para reportar todas las funciones
+        'complexity': ['warn', { max: 1 }], // Set to 1 to report all functions
       },
     }],
   });
@@ -21,7 +21,7 @@ async function analyzeComplexity() {
   const filesToAnalyze = 'students/**/src/**/*.js';
   
   console.log('\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('  ANÁLISIS DE COMPLEJIDAD CICLOMÁTICA');
+  console.log('  CYCLOMATIC COMPLEXITY ANALYSIS');
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   try {
@@ -51,20 +51,20 @@ async function analyzeComplexity() {
             
             if (complexity <= 5) {
               status = '✅';
-              level = 'Baja';
+              level = 'Low';
               complexityStats.low++;
             } else if (complexity <= 10) {
               status = '⚠️ ';
-              level = 'Media';
+              level = 'Medium';
               complexityStats.medium++;
             } else {
               status = '🚨';
-              level = 'Alta';
+              level = 'High';
               complexityStats.high++;
             }
             
-            console.log(`  ${status} Línea ${msg.line}: ${msg.message}`);
-            console.log(`     Nivel: ${level} | Complejidad: ${complexity}`);
+            console.log(`  ${status} Line ${msg.line}: ${msg.message}`);
+            console.log(`     Level: ${level} | Complexity: ${complexity}`);
           }
         });
         console.log('');
@@ -72,25 +72,25 @@ async function analyzeComplexity() {
     });
 
     if (totalFunctions === 0) {
-      console.log('No se encontraron funciones para analizar o todas tienen complejidad de 1.\n');
+      console.log('No functions found to analyze or all have complexity of 1.\n');
     } else {
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log(' RESUMEN DE COMPLEJIDAD');
+      console.log(' COMPLEXITY SUMMARY');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
-      console.log(`Total de funciones analizadas: ${totalFunctions}\n`);
-      console.log(`Complejidad baja (1-5):     ${complexityStats.low} funciones`);
-      console.log(`Complejidad media (6-10):   ${complexityStats.medium} funciones`);
-      console.log(`Complejidad alta (11+):     ${complexityStats.high} funciones\n`);
+      console.log(`Total functions analyzed: ${totalFunctions}\n`);
+      console.log(`Low complexity (1-5):     ${complexityStats.low} functions`);
+      console.log(`Medium complexity (6-10): ${complexityStats.medium} functions`);
+      console.log(`High complexity (11+):    ${complexityStats.high} functions\n`);
       
       const percentage = ((complexityStats.low / totalFunctions) * 100).toFixed(1);
-      console.log(`Porcentaje de funciones con complejidad baja: ${percentage}%\n`);
+      console.log(`Percentage of functions with low complexity: ${percentage}%\n`);
       
       if (complexityStats.high > 0) {
-        console.log('RECOMENDACIÓN: Refactoriza las funciones con complejidad alta (>10)');
+        console.log('RECOMMENDATION: Refactor functions with high complexity (>10)');
       } else if (complexityStats.medium > 0) {
-        console.log('SUGERENCIA: Considera simplificar las funciones con complejidad media (6-10)');
+        console.log('SUGGESTION: Consider simplifying functions with medium complexity (6-10)');
       } else {
-        console.log('¡Excelente! Todas las funciones tienen baja complejidad');
+        console.log('Excellent! All functions have low complexity');
       }
       console.log('');
     }
@@ -98,7 +98,7 @@ async function analyzeComplexity() {
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
   } catch (error) {
-    console.error('Error al analizar la complejidad:', error.message);
+    console.error('Error analyzing complexity:', error.message);
     process.exit(1);
   }
 }
