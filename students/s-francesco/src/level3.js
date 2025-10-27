@@ -35,7 +35,7 @@ function knapsackProblem(weights, values, capacity) {
     const weight = weights[i - 1];
     const value = values[i - 1];
     for (let w = 0; w <= capacity; w++) {
-      const includeValue = weight <= w ? value + dp[i - 1][w - weight] : 0;
+      const includeValue = weight <= w ? value + dp[i - 1][w - weight] : -Infinity;
       dp[i][w] = Math.max(includeValue, dp[i - 1][w]);
     }
   }
