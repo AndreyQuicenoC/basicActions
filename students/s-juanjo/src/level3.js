@@ -1,6 +1,6 @@
 // --- Function 1 ---
 function sudokuValidator(board) {
-  if (!Array.isArray(board)) throw new Error("Input must be an array");
+  if (!Array.isArray(board)) throw new Error('Input must be an array');
   for (let i = 0; i < 9; i++) {
     const row = new Set();
     const col = new Set();
@@ -21,7 +21,7 @@ function sudokuValidator(board) {
 
 // --- Function 2 ---
 function pathfinder(matrix, start, end) {
-  if (!Array.isArray(matrix)) throw new Error("Input must be an array");
+  if (!Array.isArray(matrix)) throw new Error('Input must be an array');
   const rows = matrix.length;
   const cols = matrix[0].length;
   const queue = [[...start, [start]]];
@@ -60,8 +60,8 @@ function pathfinder(matrix, start, end) {
 
 // --- Function 3 ---
 function lruCache(capacity) {
-  if (typeof capacity !== "number" || capacity < 1)
-    throw new Error("Capacity must be a positive number");
+  if (typeof capacity !== 'number' || capacity < 1)
+    throw new Error('Capacity must be a positive number');
   const cache = new Map();
 
   return {

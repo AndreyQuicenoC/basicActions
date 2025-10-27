@@ -1,4 +1,8 @@
-const { alternateCase, productOfArray, filterNegatives } = require('../src/level1');
+const {
+  alternateCase,
+  productOfArray,
+  filterNegatives,
+} = require('../src/level1');
 
 describe('Level 1 - Basic Functions', () => {
   test('alternateCase: should alternate case', () => {
@@ -25,6 +29,8 @@ describe('Level 1 - Basic Functions', () => {
   });
 
   test('filterNegatives: should validate input', () => {
-    expect(() => filterNegatives('not array')).toThrow('Input must be an array');
+    expect(() => filterNegatives('not array')).toThrow(
+      'Input must be an array'
+    );
   });
 });

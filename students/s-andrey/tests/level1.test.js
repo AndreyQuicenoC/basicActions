@@ -1,22 +1,21 @@
 /**
  * Unit Tests for Level 1 - Basic Functions
  * Student: s-andrey
- * 
+ *
  * Test Coverage Strategy:
  * - Happy path: Normal expected inputs
  * - Edge cases: Empty inputs, boundary values
  * - Error cases: Invalid input types
- * 
+ *
  * Coverage Target: 100% (statements, branches, functions, lines)
  */
 
 const { reverseString, isEven, removeDuplicates } = require('../src/level1');
 
 describe('Level 1 - Basic Functions', () => {
-  
   /**
    * Test Suite: reverseString
-   * 
+   *
    * Validates:
    * - Correct reversal of non-empty strings
    * - Handling of empty strings
@@ -43,7 +42,7 @@ describe('Level 1 - Basic Functions', () => {
 
   /**
    * Test Suite: isEven
-   * 
+   *
    * Validates:
    * - Positive even numbers
    * - Negative even numbers
@@ -75,7 +74,7 @@ describe('Level 1 - Basic Functions', () => {
 
   /**
    * Test Suite: removeDuplicates
-   * 
+   *
    * Validates:
    * - Removal of duplicates from number arrays
    * - Removal of duplicates from string arrays
@@ -91,7 +90,10 @@ describe('Level 1 - Basic Functions', () => {
 
     test('should remove duplicates from string arrays', () => {
       expect(removeDuplicates(['a', 'b', 'a', 'c'])).toEqual(['a', 'b', 'c']);
-      expect(removeDuplicates(['hello', 'world', 'hello'])).toEqual(['hello', 'world']);
+      expect(removeDuplicates(['hello', 'world', 'hello'])).toEqual([
+        'hello',
+        'world',
+      ]);
     });
 
     test('should handle empty arrays', () => {
@@ -103,10 +105,14 @@ describe('Level 1 - Basic Functions', () => {
     });
 
     test('should throw error for non-array input', () => {
-      expect(() => removeDuplicates('not array')).toThrow('Input must be an array');
+      expect(() => removeDuplicates('not array')).toThrow(
+        'Input must be an array'
+      );
       expect(() => removeDuplicates(123)).toThrow('Input must be an array');
       expect(() => removeDuplicates(null)).toThrow('Input must be an array');
-      expect(() => removeDuplicates(undefined)).toThrow('Input must be an array');
+      expect(() => removeDuplicates(undefined)).toThrow(
+        'Input must be an array'
+      );
     });
   });
 });

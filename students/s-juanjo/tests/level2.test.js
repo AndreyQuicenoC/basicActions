@@ -1,4 +1,8 @@
-const { stringCompression, secondLargest, groupAnagrams } = require('../src/level2');
+const {
+  stringCompression,
+  secondLargest,
+  groupAnagrams,
+} = require('../src/level2');
 
 describe('Level 2 - Logic and Conditions', () => {
   test('stringCompression: should compress strings', () => {
