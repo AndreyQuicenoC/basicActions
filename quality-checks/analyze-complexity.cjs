@@ -13,7 +13,7 @@ async function analyzeComplexity() {
     overrideConfig: [{
       files: ['**/*.js'],
       rules: {
-        'complexity': ['warn', { max: 10 }], // Establecer en 10 para reportar todas las funciones
+        'complexity': ['warn', { max: 1 }], // Establecer en 1 para reportar todas las funciones
       },
     }],
   });
